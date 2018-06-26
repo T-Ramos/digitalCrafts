@@ -1,5 +1,3 @@
+name = input('What is your name? ')
 
-#comment
-# another comment
-# comment
-# comment
+print('Hello ' + name + '!')
