@@ -1,0 +1,4 @@
+number = [1, 2, 3, 4, 5, 6]
+add = sum(number)
+
+print(add)
