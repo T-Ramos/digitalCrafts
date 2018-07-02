@@ -40,9 +40,13 @@ while go:
     def deletematch(dirlist):
         name = input('Enter Name: ')
         for e in dirlist:
-            if name in e[0]:
+            if name in directory:
                 del name                
     if ch == '3':
         entries = deletematch(directory)
         print('Deleted entry for: ' + str(e))
-    
+    if ch == '4':
+        print(str(directory))
+    if ch == '5':
+        print('Quit!')
+        break
