@@ -6,20 +6,18 @@
 import random
 
 class Character:
-    def __init__(self, health, power, bounty, name):
+    def __init__(self, health, power):
         self.health = health 
         self.power = power
-        self.bounty = bounty
-        self.name = name 
     def attack(self, enemy):
         enemy.health -= self.power
         print("{} does {} damage to the {}. ".format(self.name, self.power, enemy.name))
         if self.health <= 0:
             print(self.name + ' are dead.')
         elif enemy.health <= 0:
-            print(self.name + ' is dead.')
+            print(enemy.name + ' is dead.')
     def alive(self):
-        if self.health > 0:
+        if self.health > 0 or self.name == 'Zombie':
             return True
         else:
             return False
@@ -32,75 +30,95 @@ class Character:
 
 
 class Hero(Character):
-    def __init__(self, health, power, armor, bounty, evade, name):
-        super().__init__(health, power, bounty, name)
-        self.armor = armor
-        self.evade = evade 
+    def __init__(self, health, power):
+        super().__init__(health, power)
+        self.name = 'Hero'
+        self.coins = 0
+        self.armor = 0
+        self.evade = 0 
     def attack(self, enemy):
-        crit = random.randint(1, 10)
-        if crit == 2 or crit == 3:
-            self.power = (self.power * 2)
-        enemy.health -= self.power
-        print('{} does {} damage to the {}. '.format(self.name, self.power, enemy.name))
-        if self.health <= 0:
-            print(self.name + ' are dead.')
-        elif enemy.health <= 0:
-            print(enemy.name + ' is dead.')
-        if self.armor > 0:
-            (self.armor + self.health) - enemy.power
-            print('{} and {} got hit by {}'.format(self.armor, self.health, enemy.power))
-        if self.evade == 2:
-            if random.randint(0, 100) < 10:
-                print('Evaded')
-        if self.evade == 4:
-            if random.randint(0, 100) < 50:
-                print('Evaded')
+        if enemy.name == 'Shadow':
+            dmg = random.randint(1, 10)
+            if dmg == 5:
+                enemy.health -= self.power
+                print("{} does {} damage to the {}. ".format(self.name, self.power, enemy.name))
+            else:
+                print('{} dodged! '.format(enemy.name))
+            if self.health <= 0:
+                print(self.name + ' are dead.')
+            elif enemy.health <= 0:
+                print(enemy.name + ' is dead.')
+        elif enemy.name == 'Medic':
+            regen = random.randint(1, 10)
+            crit = random.randint(1, 10)
+            if crit == 2 or crit == 3:
+                self.power = (self.power * 2)
+                print('Crit Chance!')
+            enemy.health -= self.power
+            print('{} does {} to the {}. '.format(self.name, self.power, enemy.name))
+            if regen == 1 or regen == 2:
+                enemy.health = enemy.health + 2
+                print('Unlucky! {} health increased by 2! '.format(enemy.name))
+            if self.health <= 0:
+                print(self.name + ' are dead.')
+            elif enemy.health <= 0:
+                print(enemy.name + ' is dead.')
+        else:
+            crit = random.randint(1, 10)
+            if crit == 2 or crit == 3:
+                self.power = (self.power * 2)
+                print('Crit Chance! {} does {} damage to the {}. '.format(self.name, self.power, enemy.name))
+            enemy.health -= self.power
+            print("{} does {} damage to the {}. ".format(self.name, self.power, enemy.name))
+            if self.health <= 0:
+                print(self.name + ' are dead.')
+            elif enemy.health <= 0:
+                print(enemy.name + ' is dead.')
+            
+            if self.armor > 0:
+                (self.armor + self.health) - enemy.power
+                print('{} and {} got hit by {}'.format(self.armor, self.health, enemy.power))
+            if self.evade == 2:
+                if random.randint(0, 100) < 10:
+                    print('Evaded')
+            if self.evade == 4:
+                if random.randint(0, 100) < 50:
+                    print('Evaded')
         
 
 class Goblin(Character):
-    def __init__(self, health, power, bounty, name):
-        super().__init__(health, power, bounty, name)
+    def __init__(self, health, power):
+        super().__init__(health, power)
+        self.name = 'Goblin'
 
 class Medic(Character):
-    def __init__(self, health, power, bounty, name):
-        super().__init__(health, power, bounty, name)
-    def attack(self, enemy):
-        regen = random.randint(1, 10)
-        self.health -= enemy.power
-        print('{} does {} to the {}. '.format(enemy.name, enemy.power, self.name))
-        if regen == 1 or regen == 2:
-            self.health = self.health + 2
-            print('Lucky! {} health increased by 2! '.format(self.name))
+    def __init__(self, health, power):
+        super().__init__(health, power)
+        self.name = 'Medic'
+        self.bounty = 4
 
 class Shadow(Character):
-    def __init__(self, health, power, bounty, name):
-        super().__init__(health, power, bounty, name)
-    def attack(self, enemy):
-        dmg = random.randint(1, 10)
-        if dmg == 5:
-            self.health -= enemy.power
-            print('{} does {} to {}. '.format(enemy.name, enemy.power, self.name))
-        else:
-            print('{} dodged! '.format(self.name))
+    def __init__(self, health, power):
+        super().__init__(health, power)
+        self.name = 'Shadow'
+        self.bounty = 5
 
 class Zombie(Character):
-    def __init__(self, health, power, bounty, name):
-        super().__init__(health, power, bounty, name)
-    def alive(self):
-        if self.health == 0:
-            return True
-        elif self.health > 0:
-            return True
-        elif self.health < 0:
-            return True
+    def __init__(self, health, power):
+        super().__init__(health, power)
+        self.name = 'Zombie'
 
 class Tank(Character):
-    def __init__(self, health, power, bounty, name):
-        super().__init__(health, power, bounty, name)
+    def __init__(self, health, power):
+        super().__init__(health, power)
+        self.name = 'Tank'
+        self.bounty = 6
 
 class Wizard(Character):
-    def __init__(self, health, power, bounty, name):
-        super().__init__(health, power, bounty, name)
+    def __init__(self, health, power):
+        super().__init__(health, power)
+        self.name = 'Wizard'
+        self.bounty = 10
 
 class Store:
     def __init__(self, Hero):
@@ -128,28 +146,29 @@ class Store:
 
 
     
-def main():
-    hero = Hero(10, 5, 0, 0, 0, 'Hero')
-    goblin = Goblin(6, 2, 4, 'Goblin')
-    medic = Medic(7, 1, 0, 'Medic')
-    tank = Tank(15, 3, 0, 'Tank')
-    wizard = Wizard(4, 11, 10, 'Wizard')
-    shadow = Shadow(1, 8, 0, 'Shadow')
-    zombie = Zombie(0, 3, 6, 'Zombie')
 
-    while goblin.alive() and hero.alive():
+hero = Hero(40, 5)
+goblin = Goblin(15, 2)
+medic = Medic(30, 1)
+tank = Tank(60, 3)
+wizard = Wizard(25, 11)
+shadow = Shadow(3, 8)
+zombie = Zombie(0, 3)
+
+def main(hero, enemy):
+    while enemy.alive() and hero.alive():
         hero.print_status()
-        goblin.print_status()
+        enemy.print_status()
         print()
         print("What do you want to do?")
-        print("1. fight goblin")
+        print("1. fight {}".format(enemy.name))
         print("2. do nothing")
         print("3. flee")
         print("> ", end=' ')
         raw_input = input()
         if raw_input == "1":
-            # Hero attacks goblin
-            hero.attack(goblin)
+            # Hero attacks enemy
+            hero.attack(enemy)
         elif raw_input == "2":
             pass
         elif raw_input == "3":
@@ -158,9 +177,9 @@ def main():
         else:
             print("Invalid input {}".format(raw_input))
 
-        if goblin.health > 0:
-            # Goblin attacks hero
-            goblin.attack(hero)
+        if enemy.health > 0 or enemy.name == 'Zombie':
+            # Enemy attacks Hero
+            enemy.attack(hero)
 
-
-main ()
+# must change enemy in main() to whichever enemy you would like to fight
+main(hero, shadow)
