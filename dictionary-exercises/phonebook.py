@@ -41,7 +41,7 @@ while go:
         name = input('Enter Name: ')
         for e in dirlist:
             if name in directory:
-                del name                
+                del name               
     if ch == '3':
         entries = deletematch(directory)
         print('Deleted entry for: ' + str(e))
