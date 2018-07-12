@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    .container{
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100vh;
+    }
+    .header{
+        display: flex;
+        justify-content: space-between;
+    }
+    .awesome{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    h2, h3{
+        text-align: center;
+    }
+    .awesomeness{
+        display: flex;
+        justify-content: space-around;
+    }
+    .imgdiv{
+        display: flex;
+        justify-content: center;
+    }
+    img{
+        width: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer{
+        display:flex;
+        justify-content: center;
+        height: 5vh;
+    }
+@media screen and (max-width: 600px){
+    img{
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        /* visibility: hidden; */
+
+    }
+}
+
+
+
+
+</style>
+
+<body>
+    <div class="container">
+        
+        <div class="header">
+          <div class="title">Our Company</div>  
+
+          <div class="menu">Home | Products | Company | Blog</div> 
+        </div>
+       
+        <div><hr></div>
+        
+        <div class="awesome">
+            <h1>We Are Awesome</h1>
+        </div>
+        
+        <div><hr></div> 
+        
+        <h2>Awesomeness</h2>
+        <div class="awesomeness">
+            
+            <div class="lists1">
+                <ul>
+                    <h3>Boldness 1</h3>
+                    <li>Item One</li>
+                    <li>Item Two</li>
+                    <li>Item Three</li>
+                </ul>
+            </div>
+            
+            <div class="lists1">
+                <ul>
+                    <h3>Boldness 2</h3>
+                    <li>Item One</li>
+                    <li>Item Two</li>
+                    <li>Item Three</li>
+                </ul>
+            </div>
+           
+            <div class="lists1">
+                <ul>
+                    <h3>Boldness 3</h3>
+                    <li>Item One</li>
+                    <li>Item Two</li>
+                    <li>Item Three</li>
+                </ul>
+            </div>
+        </div>
+        <div><hr></div>
+        
+        <div class="imgdiv">
+        <div>
+            <img src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" alt="Cat">
+        <h3>Awesome Person 1</h3>
+        </div>
+
+        <div>
+            <img src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" alt="Cat">
+        <h3>Awesome Person 2</h3>
+        </div>
+       
+         </div>
+        
+         <div><hr></div>
+        
+        <div class="footer">
+            Footer
+        </div>
+
+    </div>
+    
+</body>
+
+</html>
