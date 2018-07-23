@@ -1,5 +1,5 @@
 .container{
-    height: 500px;
+    height: 700px;
     width: 100%;
     margin-left: 10%;
     margin-right: 10%;
@@ -37,4 +37,14 @@ img{
 h1{
     color: rgb(187, 1, 1);
 
+}
+.bust{
+    color: red;
+    text-align: center;
+    font-size: 50px;
+}
+.win{
+    color: red;
+    text-align: center;
+    font-size: 50px;
 }
