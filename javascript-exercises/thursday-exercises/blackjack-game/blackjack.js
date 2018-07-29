@@ -313,17 +313,6 @@ function bust(){
         busts.textContent = "Dealer Busted!";
         dealerBust = true;
     }
-}
-
-// function winner(){
-//     if (dealerPoints > playerPoints && dealerPoints <=21){
-//         var winners = document.querySelector('.win');
-//         winners.textContent = "Dealer Wins :(";
-//     }
-//     else if (playerPoints > dealerPoints && playerPoints <= 21){
-//         var winners = document.querySelector('.win');
-//         winners.textContent = "You Win :)";
-//     }
-// }
+};
 
 
