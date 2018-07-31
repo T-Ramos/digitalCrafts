@@ -101,7 +101,7 @@ $(document).ready(function(){
                 standCount +=1;
                 bust();
             }
-            else if(dealerPoints <= 17 && standCount == 2){
+            else if(dealerPoints <= 17 && standCount == 3){
                 $('.img5').attr('src', getCardImageUrl());
                 minusDecks();
                 calculatePoint();
@@ -110,27 +110,28 @@ $(document).ready(function(){
                 bust();
             }
         } 
-       if(dealerPoints >= 17){
-        if (dealerPoints > playerPoints && dealerPoints <=21 || playerBust == true){
+    if(dealerPoints >= 17){
+        if (dealerPoints > playerPoints && dealerPoints <=21){
             var winners = $('.win').text('Dealer Wins :(');  
         }
-        else if (playerPoints > dealerPoints && playerPoints <= 21 || dealerBust == true){
+        else if (playerPoints > dealerPoints && playerPoints <= 21){
             var winners = $('.win').text('You Win! :)');
         }
         else if (playerPoints == dealerPoints){
             var winners = $('.win').text('You Win!');
-       }
+        }
     }
-        if (dealerPoints > playerPoints && dealerPoints <=21 || playerBust == true){
+    else if(dealerPoints < 17){
+        if (dealerPoints > playerPoints && dealerPoints <=21){
             var winners = $('.win').text('Dealer Wins :(');  
         }
-        else if (playerPoints = 21 || dealerBust == true){
+        else if (playerPoints == 21){
             var winners = $('.win').text('You Win! :)');
         }
         else if(dealerPoints > 21){
             var winners = $('.win').text('You Win!')
         }
-    
+    }
 
     });
 
