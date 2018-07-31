@@ -1,0 +1,35 @@
+body{
+    background-image: url('https://images5.alphacoders.com/637/thumb-1920-637668.jpg');
+    background-repeat: no-repeat;
+    max-width: 100%;
+}
+.head{
+    margin-left: auto;
+    margin-top: 2%;
+    margin-right: auto;
+}
+.c1{
+    padding: 2%;
+    /* margin-right: 15%; */
+    margin-left: -20%;
+}
+.c2{
+    padding: 2%;
+    /* margin-right: 15%; */
+}
+.c3{
+    padding: 2%;
+    /* margin-right: 15%; */
+}
+.c4{
+    padding: 2%;
+    /* margin-left: -3%; */
+}
+.charac{
+    width: 1500px;
+    height: 50%;
+}
+h1{
+    font-family: futura;
+    color: rgb(70, 69, 56);
+}
