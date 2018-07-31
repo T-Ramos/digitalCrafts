@@ -110,16 +110,27 @@ $(document).ready(function(){
                 bust();
             }
         } 
-        if (dealerPoints > playerPoints && dealerPoints <=21 && dealerPoints >= 17 || playerBust == true){
+       if(dealerPoints >= 17){
+        if (dealerPoints > playerPoints && dealerPoints <=21 || playerBust == true){
             var winners = $('.win').text('Dealer Wins :(');  
         }
-        else if (playerPoints > dealerPoints && playerPoints <= 21 && dealerPoints >= 17 || dealerBust == true){
+        else if (playerPoints > dealerPoints && playerPoints <= 21 || dealerBust == true){
             var winners = $('.win').text('You Win! :)');
         }
         else if (playerPoints == dealerPoints){
-            var winners = $('.win').text('Dealer Wins :(');
+            var winners = $('.win').text('You Win!');
+       }
+    }
+        if (dealerPoints > playerPoints && dealerPoints <=21 || playerBust == true){
+            var winners = $('.win').text('Dealer Wins :(');  
         }
-
+        else if (playerPoints = 21 || dealerBust == true){
+            var winners = $('.win').text('You Win! :)');
+        }
+        else if(dealerPoints > 21){
+            var winners = $('.win').text('You Win!')
+        }
+    
 
     });
 
