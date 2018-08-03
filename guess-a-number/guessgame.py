@@ -118,5 +118,5 @@ while guess != secret_number:
         print('bye')
         break
 if guess == secret_number:
-    print('Yes! You win!')
+    print('Yes! You won!')
 
