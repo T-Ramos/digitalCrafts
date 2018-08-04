@@ -9,7 +9,7 @@ Person.prototype.greet = function(other) {
 };
 
 var sonny = new Person('Sonny', 'sonny@hotmail.com', '483-485-4948');
-var jordan = new Person('Jordan', 'jordan@aol.com', '495-586-3456');
+var jordan = new Person('Jordan', 'jordan@aol.com', '495-586-3459');
 
 sonny.greet(jordan);
 jordan.greet(sonny);
