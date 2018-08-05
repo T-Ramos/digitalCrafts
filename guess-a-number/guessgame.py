@@ -9,7 +9,7 @@ secret_number = 5
 guess = int(input())
 
 while guess != secret_number:
-    guess = int(input('Nope, try again. '))
+    guess = int(input('Nope, try again! '))
 if guess == secret_number:
     print('Yes! You win!')
 
