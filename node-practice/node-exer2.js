@@ -1,5 +1,6 @@
 //Read a file
 var fs = require('fs');
+var readline = require('readline');
 
 //this creates a new file and saves it
 // var filename = "file1.txt"
