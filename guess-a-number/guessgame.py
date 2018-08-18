@@ -1,4 +1,4 @@
-print('---Step 1---')
+print('---Step 1!---')
 
 print('Hello! What is your name?')
 myName = input()
