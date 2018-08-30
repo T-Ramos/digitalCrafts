@@ -3,7 +3,7 @@ print('---Step 1!---')
 print('Hello! What is your name?')
 myName = input()
 
-print('Hello ' + myName + '! I am thinking of a number between 1 and 10. What\'s the number? ')
+print('Hello ' + myName + '! I am thinking of a number between 1 and 10. What\'s the number? :) ')
 
 secret_number = 5
 guess = int(input())
