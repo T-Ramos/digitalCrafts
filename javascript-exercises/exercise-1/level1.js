@@ -19,7 +19,7 @@ function lvl1exercise3() {
 console.log(lvl1exercise3())
 
 function lvl1exercise4() {
-    var d = "Hello World!";
+    var d = "Hello World!!";
     return d;
 	// Declare and instantiate a string "Hello World!" and return it
 }
