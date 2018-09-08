@@ -26,7 +26,7 @@ function lvl1exercise4() {
 console.log(lvl1exercise4())
 
 function lvl1exercise5() {
-    var e = ["Hello World!", 4];
+    var e = ["Hello World!!", 4];
     return e;
 	// Declare and instantiate an array containing the string "Hello World!" and the number 4 and return it
 }
