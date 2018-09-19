@@ -5,14 +5,30 @@ class Form extends React.Component {
     constructor() {
       super();
       this.state = {
-        contact: {}
+        contact: []
       }
+    }
+
+    componentWillMount(){
+      let tempContact = {
+        name: "Mike",
+        email: "mike@mik.com",
+        phoneNum: "7135408471", 
+        address: "3515 cypress", 
+        city: "houston", 
+        state: "texas", 
+        zip: "77388"
+      }
+      let tempContactArray = this.state.contact;
+      tempContactArray.push(tempContact);
+      this.setState({contact: tempContactArray})
     }
 
     handleSubmit(event) {
 
       event.preventDefault();
-      this.setState({contact: {
+
+      let tempContact = {
         name: this.refs.name.value, 
         email: this.refs.email.value, 
         phoneNum: this.refs.phoneNum.value, 
@@ -20,17 +36,40 @@ class Form extends React.Component {
         city: this.refs.address.value, 
         state: this.refs.address.value, 
         zip: this.refs.zip.value
-        }
-      }, function(){
+      }
+
+      let tempContactArray = this.state.contact;
+
+      tempContactArray.push(tempContact);
+      
+      this.setState({contact: tempContactArray}, function(){
         console.log(this.state.contact);
+        
       }
       )
 
-      
-      event.preventDefault();
     }
 
     render() {
+
+      var displayContact = this.state.contact.map(contact => {
+        return (<div>
+          <div>{contact.name}</div>
+          <br />
+          <div>{contact.email}</div>
+          <br />
+          <div>{contact.phoneNum}</div>
+          <br />
+          <div>{contact.address}</div>
+          <br />
+          <div>{contact.city}</div>
+          <br />
+          <div>{contact.state}</div>
+          <br />
+          <div>{contact.zip}</div>
+          </div>)
+      })
+
         return (
         <div>
           <form onSubmit={this.handleSubmit.bind(this)}>
@@ -64,21 +103,9 @@ class Form extends React.Component {
             </label>
             <input type="submit" value="Submit" />
           </form>
+          <br />
           <div>
-            <br />
-            {this.state.contact.name}
-            <br />
-            {this.state.contact.email}
-            <br />
-            {this.state.contact.phoneNum}
-            <br />
-            {this.state.contact.address}
-            <br />
-            {this.state.contact.city}
-            <br />
-            {this.state.contact.state}
-            <br />
-            {this.state.contact.zip}
+            {displayContact}
           </div>
         </div>
         );
