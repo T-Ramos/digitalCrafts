@@ -24,14 +24,14 @@ class Contact extends React.Component {
     }
 
     handleDeleteContact(number) {
-        let newContacts = this.state.contacts;
+        let newContacts = this.state.contact;
         let index = newContacts.findIndex(x => x.number === number)
         newContacts.splice(index, 1)
-        this.setState({ contacts: newContacts });
+        this.setState({ contact: newContacts });
     };
 
     handleEditContant(number) {
-        let newContacts = this.state.contacts;
+        let newContacts = this.state.contact;
         let index = newContacts.findIndex(x => x.number === number)
         let contact = newContacts[index];
         this.setState({ oneContact: contact, contactIndex: index, show: !this.state.show })
@@ -39,32 +39,33 @@ class Contact extends React.Component {
 
     contactUpdated(contact) {
         let index = this.state.contactIndex;
-        let newContacts = this.state.contacts;
+        let newContacts = this.state.contact;
         newContacts.splice(index, 1, contact)
         this.setState({ contacts: newContacts, show: false });
     }
 
     render() {
-        var contactItem = this.state.contacts.map(contact => {
-            return (
-                <ContactItem
-                    key={contact.number}
-                    contact={contact}
-                    deleted={this.handleDeleteContact.bind(this)}
-                    edited={this.handleEditContant.bind(this)}
-                />
-            );
-        })
+        // var contactItem = this.state.contact.map(contact => {
+        //     return (
+        //         <ContactItem
+        //             key={contact.number}
+        //             contact={contact}
+        //             deleted={this.handleDeleteContact.bind(this)}
+        //             edited={this.handleEditContant.bind(this)}
+        //         />
+        //     );
+        // })
         return (
             <div>
                 <div>
-                    New Contact:
                     <Form
-                        newContact={this.handleAddContact.bind(this)} />
+                        newContact={this.handleAddContact.bind(this)} 
+                        deleted={this.handleDeleteContact.bind(this)}
+                        edited={this.handleEditContant.bind(this)}/>
                 </div>
                 <br />
                 <div>
-                    {contactItem}
+                    {/* {contactItem} */}
                 </div>
                 <ToggleDisplay show={this.state.show}>
                     <div>

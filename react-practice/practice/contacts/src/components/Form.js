@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Form extends React.Component {
+export default class Form extends React.Component {
 
     constructor() {
       super();
@@ -50,6 +50,14 @@ class Form extends React.Component {
 
     }
 
+    deleteItem(number) {
+      this.props.deleted(number);
+  }
+
+  editItem(number) {
+      this.props.edited(number);
+  }
+
     render() {
 
       var displayContact = this.state.contact.map(contact => {
@@ -67,7 +75,11 @@ class Form extends React.Component {
           <div>{contact.state}</div>
           <br />
           <div>{contact.zip}</div>
-          </div>)
+          <input type="button" value='Delete' onClick={this.deleteItem.bind(this, this.state.contact.number)} />
+          <input type="button" value='Edit' onClick={this.editItem.bind(this, this.state.contact.number)} />
+          </div>
+          
+          )
       })
 
         return (
@@ -112,4 +124,3 @@ class Form extends React.Component {
       }
     }
 
-export default Form;
