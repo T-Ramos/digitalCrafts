@@ -15,7 +15,7 @@ export default class Form extends React.Component {
         email: "mike@mik.com",
         phoneNum: "7135408471", 
         address: "3515 cypress", 
-        city: "houston", 
+        city: "houstons", 
         state: "texas", 
         zip: "77388"
       }
