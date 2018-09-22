@@ -13,7 +13,7 @@ export default class Form extends React.Component {
       let tempContact = {
         name: "Mike",
         email: "mike@mik.com",
-        phoneNum: "7135408471", 
+        phoneNum: "71354084711", 
         address: "3515 cypress", 
         city: "houstons", 
         state: "texas", 
