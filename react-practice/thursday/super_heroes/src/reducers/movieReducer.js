@@ -4,6 +4,7 @@ function movieReducer(state, action){
     if(state === undefined){
         console.log('reducer initialized');
         return{
+            apiInfo: [],
             movieCart: [
                 {
                     movieName: "Deadpool 2",
@@ -33,6 +34,12 @@ function movieReducer(state, action){
             return {
                 ...state,
                 movieCart: updatedArray
+            }
+        
+        case "apiFetchData":
+            return{
+                ...state,
+                apiInfo: action.payload
             }
         default:
             return(state)

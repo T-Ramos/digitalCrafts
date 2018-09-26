@@ -6,9 +6,39 @@ export default class Movies extends React.Component{
         super(props);
     }
 
+    componentWillMount(){
+
+        // var apiKey = "c71e4a1d";
+        // http://www.omdbapi.com/?s=batman&apikey=insertyourkeyhere
+        fetch("http://www.omdbapi.com/?s=batman&apikey=c71e4a1d")
+        .then((response => response.json()))
+        .then(response => this.props.onFetch(response))
+    }
+
     render(){
+
+        let movieArray = this.props.movieData.Search;
+
+        // let movieResults = this.movieArray.map(movie => {
+        //     return "hello"
+        // })
+        
+       let movieResult = [];
+
+       for (let x in movieArray){
+           movieResult.push(movieArray[x]);
+       }
+       console.log(movieResult)
+        
         return(
             <div>
+                
+                {
+                    movieResult.map(movie => {
+                        return <li>{movie.Title}</li>
+                    })
+                }
+                
                 <AddMovie addMovie={this.props.onAddMovie} />
 
                 <table>
