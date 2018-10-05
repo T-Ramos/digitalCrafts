@@ -7,7 +7,7 @@ export default class Movies extends React.Component{
     }
 
     componentWillMount(){
-
+        // https://healthhitters.com/wp-json/wp/v2/posts
         // var apiKey = "c71e4a1d";
         // http://www.omdbapi.com/?s=batman&apikey=insertyourkeyhere
         fetch("http://www.omdbapi.com/?s=batman&apikey=c71e4a1d")
@@ -44,7 +44,7 @@ export default class Movies extends React.Component{
                 <table>
                     <thead>
                         <tr>
-                            <th>Movie Name</th>
+                            <th>Movie NAME</th>
                             <th>Movie URL</th>
                         </tr>
                     </thead>
