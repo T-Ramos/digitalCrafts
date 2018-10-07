@@ -1,7 +1,7 @@
 // import { fstat } from "fs";
 
 //num 1
-console.log('HELLO WORLD');
+console.log('HELLO WORLD!');
 //num 2
 console.log(process.argv);
 var num1 = Number(process.argv[2]);
